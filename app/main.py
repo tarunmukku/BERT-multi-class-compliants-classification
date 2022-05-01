@@ -23,7 +23,7 @@ out = tf.keras.layers.Dropout(0.1)(out)
 out = Dense(32,activation = 'relu')(out)
 y = Dense(5,activation = 'sigmoid')(out)
 new_model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=y)
-new_model.load_weights('model_weights.h5')
+new_model.load_weights('app\model_weights.h5')
 
 class Complaint(BaseModel):
     user_text: str

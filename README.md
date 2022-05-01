@@ -6,7 +6,9 @@ Jupyter notebook :BERT_multi_class_classification_compliants_final.ipynb
 and FASTAPI application for deploying Deep learning model as a API service.
 to initialise the API server. download and unzip the release artifcats https://github.com/tarunmukku/BERT-multi-class-compliants-classification/releases/tag/1.0.0
 Zip File : **BERT-multi-class-compliants-classification.zip**
+
 install requierd dependencies as per requirements.txt
+
 Execute main.py file 
 
 ![image](https://user-images.githubusercontent.com/55400054/166152191-d3f0592c-a56f-41d6-9808-73020ecda706.png)

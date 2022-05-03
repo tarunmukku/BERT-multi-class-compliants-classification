@@ -2,11 +2,10 @@ import uvicorn
 
 from fastapi import FastAPI
 import tensorflow as tf
-import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Input, Dense
-
-
+from google_drive_downloader import GoogleDriveDownloader as g
+import gdown
 
 from pydantic import BaseModel
 from transformers import AutoTokenizer,TFBertModel
@@ -23,7 +22,13 @@ out = tf.keras.layers.Dropout(0.1)(out)
 out = Dense(32,activation = 'relu')(out)
 y = Dense(5,activation = 'sigmoid')(out)
 new_model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=y)
-new_model.load_weights('model_weights.h5')
+
+
+# a file
+
+url = "https://drive.google.com/uc?id=1WjO8IZFu18L6vzx78eWF0wbDoT6ouzmo"
+output = "model_weights.h5"
+gdown.download(url, output, quiet=False)
 
 class Complaint(BaseModel):
     user_text: str

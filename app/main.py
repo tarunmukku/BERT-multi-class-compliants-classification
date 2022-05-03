@@ -4,7 +4,6 @@ from fastapi import FastAPI
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.layers import Input, Dense
-from google_drive_downloader import GoogleDriveDownloader as g
 import gdown
 
 from pydantic import BaseModel

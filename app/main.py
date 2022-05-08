@@ -1,5 +1,5 @@
 import uvicorn
-
+from os.path import exists as file_exists
 from fastapi import FastAPI
 import tensorflow as tf
 from tensorflow import keras
@@ -27,7 +27,8 @@ new_model = tf.keras.Model(inputs=[input_ids, input_mask], outputs=y)
 
 url = "https://drive.google.com/uc?id=1WjO8IZFu18L6vzx78eWF0wbDoT6ouzmo"
 output = "model_weights.h5"
-gdown.download(url, output, quiet=False)
+if not file_exists('model_weights.h5'):
+    gdown.download(url, output, quiet=False)
 
 class Complaint(BaseModel):
     user_text: str
@@ -63,7 +64,9 @@ def model_prediction(data: Complaint):
     return_token_type_ids = False,
     return_attention_mask = True,
     verbose = True) 
+    new_model.load_weights('model_weights.h5')
     validation = new_model.predict({'input_ids':x_val['input_ids'],'attention_mask':x_val['attention_mask']}).tolist()[0]
+    print(validation)
     max_val = max(validation)
     idx_max = validation.index(max_val)
 

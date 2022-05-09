@@ -1,3 +1,8 @@
+
+Demo of the application : 
+https://www.youtube.com/watch?v=VIkHNG0aM50
+
+
 Transformer based deep learning classification model for classifying costumer complaints
 
 this project consists of and Jupyter notebook for developing and fine-tuning BERT model for classifying costumer complaints 
